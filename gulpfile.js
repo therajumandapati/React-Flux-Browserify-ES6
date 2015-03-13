@@ -14,58 +14,22 @@ var gulp = require('gulp'),
     watchify = require('watchify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
-    to5ify = require('6to5ify'),
+    to5ify = require('babelify'),
     uglify = require('gulp-uglify'),
     del = require('del'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync'),
-    deploy = require('gulp-ftp'),
-    ftp = require('./ftp.json'),
     reload = browserSync.reload,
     p = {
         jsx: './scripts/app.jsx',
         scss: 'styles/main.scss',
         bundle: 'app.js',
         distJs: 'dist/js',
-        distCss: 'dist/css',
-        vendor: {
-            js: [
-                'bower_components/jquery/dist/jquery.min.js',
-                'bower_components/bootstrap/dist/js/bootstrap.min.js'
-            ],
-            others: [
-                'bower_components/bootstrap/dist/css/bootstrap.min.css',
-                'bower_components/bootstrap/dist/fonts/*.*',
-                'node_modules/font-awesome/css/font-awesome.min.css',
-                'node_modules/font-awesome/fonts/*.*'
-            ]
-        }
+        distCss: 'dist/css'
     };
 
 gulp.task('clean', function(cb) {
     del(['dist/js/vendor'], cb);
-});
-
-gulp.task('vendor', ['vendor-others', 'vendor-js'], function(cb) {
-
-});
-
-gulp.task('vendor-others', function() {
-    gulp.src(p.vendor.others, {
-        base: 'bower_components/bootstrap/dist'
-    })
-    .pipe(gulp.dest('dist/'));
-
-    return gulp.src([p.vendor.others[2], p.vendor.others[3]], {
-        base: 'node_modules/font-awesome'
-    })
-    .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('vendor-js', function() {
-    return gulp.src(p.vendor.js)
-        .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('dist/js/'));
 });
 
 var folder = path.resolve(__dirname, "./");
@@ -136,7 +100,7 @@ gulp.task('watchTask', function() {
 });
 
 gulp.task('watch', ['clean', 'images'], function() {
-    gulp.start(['browserSync', 'vendor', 'watchTask', 'watchify', 'styles']);
+    gulp.start(['browserSync', 'watchTask', 'watchify', 'styles']);
 });
 
 gulp.task('images', function() {
@@ -148,7 +112,7 @@ gulp.task('images', function() {
 
 gulp.task('build', ['clean', 'images'], function() {
     process.env.NODE_ENV = 'production';
-    gulp.start(['browserify', 'styles', 'vendor']);
+    gulp.start(['browserify', 'styles']);
 });
 
 gulp.task('minify', function() {
@@ -157,18 +121,6 @@ gulp.task('minify', function() {
       mangle: true
     }))
     .pipe(gulp.dest('./dist/js'));
-});
-
-gulp.task('release', ['build', 'minify'], function() {
-    return gulp.src(['./dist/**/*.*', './index.html'], {
-            base: './'
-        })
-        .pipe(deploy({
-            host: 'ftp.venkatapathirajum.com',
-            user: ftp.username,
-            pass: ftp.password,
-            remotePath: '/public_html'
-        }));
 });
 
 gulp.task('default', function() {
