@@ -1,0 +1,301 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    /*font-family: "Source Sans Pro", sans-serif;*/
+    
+    background: #f2f2f2;
+}
+blockquote {
+    border-left: 5px solid #C8C8C8;
+    background: rgba(250, 250, 250, 0.68);
+}
+hr {
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.main-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.holder {
+    color: white;
+}
+.link {
+    a, a:hover {
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+    }
+}
+/*
+
+	Header styles
+
+*/
+
+.header-menu-item {
+    display: block;
+    float: left;
+    height: 100px;
+    div {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        border: 1px solid rgb(219, 219, 219);
+        width: 55px;
+        line-height: 23px;
+        background: #FAFAFA;
+        a {
+            padding: 5px;
+        }
+    }
+    div:hover {
+        background: white;
+        border-color: #8F8F8F;
+    }
+}
+.profile-header {
+    display: block;
+    float: left;
+    height: 100px;
+    line-height: 100px;
+    img {
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        width: 100px;
+        height: 100px;
+    }
+    a {
+        color: #383838;
+        padding: 0px 0px 0px 30px;
+        font-size: 35px;
+        font-weight: bold;
+        text-transform: uppercase;
+        vertical-align: middle;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+}
+.profile-menu {
+	display: block;
+	float: right;
+	height: 100px;
+    line-height: 100px;
+}
+.profile-name {
+    text-transform: uppercase;
+    height: 100px;
+    display: table;
+    a {
+        padding-top: 20px;
+        display: table-cell;
+        font-size: 40px;
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.me-row {
+    min-height: 150px;
+    padding-bottom: 90px;
+    padding-top: 15px;
+    font-size: 26px;
+    font-weight: 200;
+    color: #444;
+
+    span {
+    	line-height: 2;
+    }
+}
+@media (min-width: 768px) {
+    .me-row {
+		text-align: center;
+    	font-size: 36px;
+    }
+}
+.me-who {
+    position: relative;
+}
+.me-who:after {
+	margin-right: -15px;
+    content: "WHO";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	text-transform: uppercase;
+	font-size: 7em;
+	line-height: 0.75em;
+	font-weight: bolder;
+	color: rgba(0,0,0,.35);
+}
+
+.me-what {
+    position: relative;
+}
+.me-what:after {
+	margin-right: -15px;
+    content: "WHAT";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	text-transform: uppercase;
+	font-size: 7em;
+	line-height: 0.75em;
+	font-weight: bolder;
+	color: rgba(0,0,0,.35);
+}
+
+.me-why {
+    position: relative;
+}
+.me-why:after {
+	margin-right: -15px;
+    content: "WHY";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	text-transform: uppercase;
+	font-size: 7em;
+	line-height: 0.75em;
+	font-weight: bolder;
+	color: rgba(0,0,0,.35);
+}
+
+.me-where {
+    position: relative;
+}
+.me-where:after {
+	margin-right: -15px;
+    content: "WHERE";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	text-transform: uppercase;
+	font-size: 7em;
+	line-height: 0.75em;
+	font-weight: bolder;
+	color: rgba(0,0,0,.35);
+}
+/*
+
+	Blog Post Simple styles
+
+*/
+
+.blog {
+    padding: 20px;
+}
+.blog-post-simple {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    .title {
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 24px;
+    }
+    a {
+        color: black;
+    }
+    a:hover {
+        text-decoration: none;
+        color: black;
+    }
+    .date {
+        font-weight: normal;
+        font-style: italic;
+        font-style: 26px;
+        color: grey;
+    }
+}
+.blog-post {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .title {
+        text-align: center;
+        font-weight: 500;
+        padding-top: 20px;
+        span {
+            font-size: 32px;
+            color: black;
+        }
+    }
+    .date {
+        text-align: center;
+        span {
+            font-size: 14px;
+            font-style: italic;
+            color: white;
+        }
+    }
+    .loader {
+        padding: 40px;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+@media (min-width: 768px) {
+    .blog-post-content {
+        padding: 50px;
+    }
+}
+.blog-post-content {
+    font-size: 18px;
+    text-align: justify;
+    word-spacing: 2px;
+    letter-spacing: 0.3px;
+    padding-top: 20px;
+    color: #1E1E1E;
+}
+.no-padding {
+    padding: 0px !important;
+}
+.no-padding-horizontal {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.padding-left-15 {
+    padding-left: 15px;
+}
+.padding-right-15 {
+    padding-right: 15px;
+}
+.padding-vertical-25 {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+
+/*
+
+	Colors
+
+*/
+
+.magenta {
+    background-color: #F24B78 !important;
+}
+.bluish-grey {
+    background-color: #88BFBF !important;
+}
+.yellow {
+    background-color: #F2CD5C !important;
+}
+.cream {
+    background-color: #D9C2AD !important;
+}
+.orange {
+    background-color: #F27052 !important;
+}
+.red {
+    background-color: #F25252 !important;
+}
+.blue {
+	background-color: #3DC2FF !important;
+}
+
+.text-white {
+	color: white;
+}

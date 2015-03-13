@@ -1,0 +1,16 @@
+{
+  "name": "ideastore",
+  "version": "0.0.1",
+  "description": "Store for your crazy ideas",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}
