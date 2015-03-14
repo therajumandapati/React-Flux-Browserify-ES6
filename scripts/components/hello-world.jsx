@@ -6,19 +6,20 @@ import HelloStore from '../stores/HelloStore.js';
 
 export default class HelloWorld extends React.Component {
 
-	getInitialState() {
-		return HelloStore.getState()
+	constructor(props) {
+		super(props);
+		this.state = HelloStore.getState();
 	}
 
 	componentWillMount() {
-		HelloStore.addChangeListener(this._onChange);
+		HelloStore.addChangeListener(this._onChange.bind(this));
 		if(this.state.message === '') {
 			HelloActions.fetch();
 		}
 	}
 
 	componentWillUnmount() {
-		HelloStore.addRemoveListener(this._onChange);
+		HelloStore.addRemoveListener(this._onChange.bind(this));
 	}
 
 	_onChange() {

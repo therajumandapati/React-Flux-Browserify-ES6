@@ -2,12 +2,12 @@
 
 import AppDispatcher from '../dispatchers/AppDispatcher.js';
 import HelloConstants from '../constants/HelloConstants.js';
-import HelloSlave from '../actions/HelloSlave.js';
+import HelloSlave from '../slaves/HelloSlave.js';
 
 export default {
 	fetch: () => {
 		HelloSlave.fetch().then((data) => {
-			AppDispatcher.handleActions({
+			AppDispatcher.handleAction({
 				type: HelloConstants.FETCHING,
 				data: data
 			});
