@@ -20,7 +20,6 @@
   "license": "MIT",
   "dependencies": {
     "flux": "^2.0.1",
-    "object.assign": "^1.1.1",
     "q": "^1.2.0",
     "react": "^0.13.0"
   },

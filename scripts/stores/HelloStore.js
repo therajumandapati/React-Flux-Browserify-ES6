@@ -3,7 +3,6 @@
 import AppDispatcher from '../dispatchers/AppDispatcher.js';
 import HelloConstants from '../constants/HelloConstants.js';
 import {EventEmitter} from 'events';
-import assign from 'object.assign';
 
 let data = {
 	message: ''
