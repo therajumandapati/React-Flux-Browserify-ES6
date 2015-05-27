@@ -19,7 +19,7 @@ export default class HelloWorld extends React.Component {
 	}
 
 	componentWillUnmount() {
-		HelloStore.addRemoveListener(this._onChange.bind(this));
+		HelloStore.removeChangeListener(this._onChange.bind(this));
 	}
 
 	_onChange() {
